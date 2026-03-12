@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melbourne Angels — Victoria's Most Active Angel Syndicate</title>
+<meta name="description" content="Melbourne Angels connects experienced investors with exceptional early-stage Australian startups. Investing since 2007. 150+ companies backed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   MELBOURNE ANGELS — HOMEPAGE v2
+   Reference: Startmate · LaunchVic · The Startup Network
+   Bold editorial. Full-bleed colour. Typographic muscle.
+   No decoration. Restraint with scale.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue-900: #0B1727;
+  --blue-800: #162D4D;
+  --blue-700: #224474;
+  --blue-600: #2D5A9A;
+  --blue-500: #3871C1;
+  --blue-300: #7EABE1;
+  --blue-100: #D4E3F5;
+  --blue-50:  #EDF3FB;
+
+  --orange-700: #94520B;
+  --orange-600: #C56D0E;
+  --orange-500: #F68812;
+  --orange-400: #F79B33;
+  --orange-200: #FBCD99;
+  --orange-50:  #FEF5EB;
+
+  --n0:   #FFFFFF;
+  --n50:  #F8F9FA;
+  --n100: #F1F3F5;
+  --n200: #E2E6EA;
+  --n300: #CED4DA;
+  --n400: #ADB5BD;
+  --n500: #868E96;
+  --n600: #64707D;
+  --n700: #495057;
+  --n800: #2E3338;
+  --n900: #1A1D21;
+  --n950: #0D0F11;
+
+  --f-head: 'Inter', -apple-system, sans-serif;
+  --f-body: 'DM Sans', -apple-system, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--n900);
+  background: var(--n0);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--f-head); font-weight: 700; font-size: 14px;
+  line-height: 1; letter-spacing: -0.01em;
+  border-radius: 3px; border: 2px solid transparent;
+  cursor: pointer; text-decoration: none;
+  transition: background .15s, border-color .15s, color .15s, transform .15s;
+  white-space: nowrap;
+  padding: 13px 24px;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-sm { padding: 9px 18px; font-size: 13px; }
+.btn-lg { padding: 16px 32px; font-size: 16px; }
+
+.btn-primary   { background: var(--blue-500); color: #fff; border-color: var(--blue-500); }
+.btn-primary:hover { background: var(--blue-700); border-color: var(--blue-700); }
+
+.btn-accent    { background: var(--orange-500); color: #fff; border-color: var(--orange-500); }
+.btn-accent:hover { background: var(--orange-600); border-color: var(--orange-600); }
+
+.btn-outline   { background: transparent; color: var(--blue-600); border-color: var(--blue-300); }
+.btn-outline:hover { background: var(--blue-50); border-color: var(--blue-500); }
+
+.btn-ghost-dark { background: transparent; color: rgba(255,255,255,.65); border-color: rgba(255,255,255,.25); }
+.btn-ghost-dark:hover { color: #fff; border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.07); }
+
+.btn-white     { background: #fff; color: var(--blue-700); border-color: #fff; }
+.btn-white:hover { background: var(--blue-50); border-color: var(--blue-50); }
+
+.btn-white-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
+.btn-white-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.7); }
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 56px;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  transition: box-shadow .2s;
+}
+.nav.is-scrolled { box-shadow: 0 2px 16px rgba(0,0,0,.07); }
+
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; flex-shrink: 0;
+}
+.nav-logo svg { width: 28px; height: 28px; }
+.nav-wordmark {
+  font-family: var(--f-head); font-size: 16px; font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1;
+}
+.nav-wordmark .b { color: var(--blue-600); }
+.nav-wordmark .o { color: var(--orange-500); }
+
+.nav-links { display: flex; list-style: none; gap: 2px; }
+.nav-links a {
+  font-family: var(--f-head); font-size: 13.5px; font-weight: 500;
+  color: var(--n600); text-decoration: none;
+  padding: 6px 14px; border-radius: 2px;
+  transition: color .15s, background .15s;
+}
+.nav-links a:hover { color: var(--n900); background: var(--n50); }
+
+.nav-ctas { display: flex; gap: 8px; flex-shrink: 0; }
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  background: var(--blue-900);
+  display: flex; flex-direction: column;
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle colour wash — no grids, no dots */
+.hero-wash {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(56,113,193,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(246,136,18,.08) 0%, transparent 60%);
+}
+
+.hero-body {
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 56px 56px;
+  max-width: 1100px; width: 100%;
+  position: relative; z-index: 1;
+}
+
+.hero-kicker {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--f-head); font-size: 11px; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--orange-400);
+  margin-bottom: 28px;
+}
+.hero-kicker-rule { width: 28px; height: 2px; background: var(--orange-500); border-radius: 2px; }
+.hero-kicker-year {
+  color: rgba(255,255,255,.3); font-weight: 500;
+  border-left: 1px solid rgba(255,255,255,.15); padding-left: 12px;
+}
+
+.hero-h1 {
+  font-family: var(--f-head);
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: #fff;
+  max-width: 900px;
+  margin-bottom: 32px;
+}
+.hero-h1 em {
+  font-style: normal;
+  color: var(--orange-400);
+}
+
+.hero-lead {
+  font-family: var(--f-body);
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.65;
+  color: rgba(255,255,255,.55);
+  max-width: 520px;
+  margin-bottom: 44px;
+}
+
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 80px; }
+
+/* Trust stats */
+.hero-stats {
+  display: flex; gap: 0;
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 40px;
+}
+.hero-stat {
+  padding: 0 48px 0 0;
+  margin-right: 48px;
+  border-right: 1px solid rgba(255,255,255,.1);
+}
+.hero-stat:last-child { border-right: none; }
+
+.hero-stat-n {
+  font-family: var(--f-head);
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 900; letter-spacing: -0.04em;
+  color: #fff; line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-stat-n span { color: var(--orange-400); }
+
+.hero-stat-l {
+  font-family: var(--f-body);
+  font-size: 13px; color: rgba(255,255,255,.4);
+  line-height: 1.35;
+}
+
+/* ══════════════════════════════════════
+   PERSONA SPLIT — full-bleed two panels
+══════════════════════════════════════ */
+.persona {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+}
+
+.persona-panel {
+  padding: 72px 64px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+
+.persona-panel-inv { background: var(--blue-700); }
+.persona-panel-fnd { background: var(--orange-500); }
+
+/* Large ghost letter behind each panel */
+.persona-panel::after {
+  content: attr(data-letter);
+  position: absolute; right: -24px; bottom: -40px;
+  font-family: var(--f-head); font-weight: 900;
+  font-size: 220px; line-height: 1;
+  letter-spacing: -0.06em;
+  color: rgba(255,255,255,.05);
+  pointer-events: none; user-select: none;
+}
+
+.persona-tag {
+  font-family: var(--f-head); font-size: 11px; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 24px;
+}
+
+.persona-h2 {
+  font-family: var(--f-head);
+  font-size: clamp(26px, 2.8vw, 38px);
+  font-weight: 900; letter-spacing: -0.03em;
+  line-height: 1.1; color: #fff;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+
+.persona-p {
+  font-family: var(--f-body); font-size: 15px;
+  line-height: 1.7; color: rgba(255,255,255,.7);
+  margin-bottom: 40px; max-width: 380px; flex: 1;
+}
+
+.persona-arrow-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--f-head); font-size: 14px; font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none; color: #fff;
+  padding: 14px 24px;
+  border: 2px solid rgba(255,255,255,.4);
+  border-radius: 3px;
+  width: fit-content;
+  transition: background .15s, border-color .15s, gap .15s;
+}
+.persona-arrow-btn:hover {
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.7);
+}
+.persona-arrow-btn svg { transition: transform .15s; }
+.persona-arrow-btn:hover svg { transform: translateX(4px); }
+
+/* ══════════════════════════════════════
+   STATS BAR
+══════════════════════════════════════ */
+.stats-bar {
+  background: var(--n0);
+  border-bottom: 1px solid var(--n100);
+  padding: 56px;
+}
+.stats-bar-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.sbar-item {
+  padding: 0 40px;
+  border-right: 1px solid var(--n200);
+  display: flex; align-items: flex-start; gap: 16px;
+}
+.sbar-item:first-child { padding-left: 0; }
+.sbar-item:last-child  { border-right: none; }
+
+.sbar-icon {
+  flex-shrink: 0; width: 40px; height: 40px;
+  background: var(--blue-50); border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 4px;
+}
+.sbar-icon svg { width: 18px; height: 18px; stroke: var(--blue-500); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.sbar-n {
+  font-family: var(--f-head); font-size: 38px; font-weight: 900;
+  letter-spacing: -0.04em; line-height: 1;
+  color: var(--blue-600);
+}
+.sbar-n sup { font-size: 20px; letter-spacing: 0; }
+.sbar-l {
+  font-family: var(--f-body); font-size: 13px;
+  color: var(--n500); line-height: 1.4; margin-top: 3px;
+}
+
+/* ══════════════════════════════════════
+   SECTION SHELL (reusable)
+══════════════════════════════════════ */
+.section { padding: 96px 56px; }
+.section-dark  { background: var(--blue-900); color: #fff; }
+.section-light { background: var(--n0); }
+.section-tint  { background: var(--n50); }
+.section-blue  { background: var(--blue-50); }
+
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.eyebrow {
+  font-family: var(--f-head); font-size: 11px; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 20px;
+}
+.eyebrow-rule { width: 24px; height: 2px; border-radius: 2px; }
+
+.section-light .eyebrow,
+.section-tint  .eyebrow,
+.section-blue  .eyebrow { color: var(--blue-500); }
+.section-light .eyebrow .eyebrow-rule,
+.section-tint  .eyebrow .eyebrow-rule,
+.section-blue  .eyebrow .eyebrow-rule { background: var(--blue-500); }
+
+.section-dark .eyebrow { color: var(--orange-400); }
+.section-dark .eyebrow .eyebrow-rule { background: var(--orange-400); }
+
+.section-h2 {
+  font-family: var(--f-head);
+  font-size: clamp(32px, 3.8vw, 52px);
+  font-weight: 900; letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+.section-light .section-h2,
+.section-tint  .section-h2,
+.section-blue  .section-h2 { color: var(--n900); }
+.section-dark  .section-h2 { color: #fff; }
+
+.section-lead {
+  font-family: var(--f-body); font-size: 17px; line-height: 1.65;
+  margin-top: 16px; max-width: 540px;
+}
+.section-light .section-lead,
+.section-tint  .section-lead { color: var(--n600); }
+.section-dark  .section-lead { color: rgba(255,255,255,.55); }
+
+/* ══════════════════════════════════════
+   INVESTOR SECTION
+══════════════════════════════════════ */
+.inv-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+  margin-top: 56px;
+}
+
+.steps { display: flex; flex-direction: column; }
+.step {
+  display: flex; gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.step:last-child { border-bottom: none; }
+
+.step-num {
+  flex-shrink: 0; width: 28px; height: 28px;
+  border-radius: 2px; background: rgba(255,255,255,.08);
+  font-family: var(--f-head); font-size: 12px; font-weight: 700;
+  color: rgba(255,255,255,.4);
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+  transition: background .15s, color .15s;
+}
+.step:hover .step-num { background: var(--blue-500); color: #fff; }
+
+.step-title {
+  font-family: var(--f-head); font-size: 15px; font-weight: 700;
+  color: #fff; margin-bottom: 5px;
+}
+.step-body {
+  font-family: var(--f-body); font-size: 14px;
+  color: rgba(255,255,255,.55); line-height: 1.65;
+}
+
+/* Benefits card */
+.benefits-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 4px;
+  padding: 44px;
+  position: sticky; top: 80px;
+}
+.benefits-card-title {
+  font-family: var(--f-head); font-size: 11px; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--orange-400); margin-bottom: 8px;
+}
+.benefits-card-h3 {
+  font-family: var(--f-head); font-size: 22px; font-weight: 800;
+  letter-spacing: -0.02em; color: #fff;
+  margin-bottom: 32px; line-height: 1.2;
+}
+
+.benefit {
+  display: flex; gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.benefit:last-of-type { border-bottom: none; margin-bottom: 28px; }
+
+.benefit-icon {
+  flex-shrink: 0; width: 32px; height: 32px;
+  background: rgba(255,255,255,.06); border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.benefit-icon svg { width: 16px; height: 16px; stroke: var(--blue-300); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.benefit-text {
+  font-family: var(--f-body); font-size: 14px;
+  color: rgba(255,255,255,.6); line-height: 1.55;
+}
+.benefit-text strong { color: rgba(255,255,255,.85); font-weight: 600; }
+
+/* ══════════════════════════════════════
+   PORTFOLIO
+══════════════════════════════════════ */
+.portfolio-header {
+  display: flex; align-items: flex-end;
+  justify-content: space-between; gap: 24px;
+  margin-bottom: 40px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+}
+
+.portfolio-tile {
+  background: var(--n0);
+  border: 1px solid var(--n200);
+  padding: 24px 20px;
+  display: flex; flex-direction: column; gap: 12px;
+  transition: border-color .15s, background .15s;
+  cursor: default;
+}
+.portfolio-tile:hover {
+  border-color: var(--blue-300);
+  background: var(--blue-50);
+}
+
+.portfolio-name {
+  font-family: var(--f-head); font-size: 14px; font-weight: 700;
+  color: var(--n900); letter-spacing: -0.01em;
+}
+.portfolio-desc {
+  font-family: var(--f-body); font-size: 12.5px;
+  color: var(--n500); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  flex: 1;
+}
+.portfolio-meta {
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 8px;
+}
+.portfolio-year { font-family: var(--f-head); font-size: 11px; color: var(--n400); }
+.badge {
+  font-family: var(--f-head); font-size: 10px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 2px;
+}
+.badge-active { background: var(--blue-50); color: var(--blue-600); }
+.badge-exit   { background: #E8F5EE; color: #237A47; }
+
+/* ══════════════════════════════════════
+   FOUNDER SECTION
+══════════════════════════════════════ */
+.fnd-layout {
+  display: grid; grid-template-columns: 5fr 7fr;
+  gap: 80px; align-items: start;
+  margin-top: 56px;
+}
+
+.fnd-intro {}
+.fnd-intro-actions { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
+
+.criteria-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+}
+
+.criteria-tile {
+  background: var(--n50);
+  border: 1px solid var(--n100);
+  padding: 28px;
+  transition: border-color .15s, background .15s;
+  cursor: default;
+}
+.criteria-tile:hover {
+  background: var(--n0); border-color: var(--orange-200);
+}
+
+.criteria-icon {
+  width: 36px; height: 36px;
+  background: var(--orange-50); border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.criteria-icon svg { width: 16px; height: 16px; stroke: var(--orange-600); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.criteria-name {
+  font-family: var(--f-head); font-size: 14px; font-weight: 700;
+  color: var(--n900); margin-bottom: 6px;
+}
+.criteria-desc {
+  font-family: var(--f-body); font-size: 13px;
+  color: var(--n600); line-height: 1.6;
+}
+
+/* Deal strip */
+.deal-strip {
+  margin-top: 2px;
+  background: var(--orange-500);
+  padding: 28px 32px;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.deal-item {
+  padding: 0 28px;
+  border-right: 1px solid rgba(255,255,255,.2);
+}
+.deal-item:first-child { padding-left: 0; }
+.deal-item:last-child  { border-right: none; }
+
+.deal-n {
+  font-family: var(--f-head); font-size: 24px; font-weight: 900;
+  letter-spacing: -0.03em; color: #fff; margin-bottom: 2px;
+}
+.deal-l {
+  font-family: var(--f-body); font-size: 12px;
+  color: rgba(255,255,255,.7);
+}
+
+/* ══════════════════════════════════════
+   NEWS
+══════════════════════════════════════ */
+.news-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 32px; gap: 24px;
+}
+
+.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+.news-card {
+  background: var(--n0);
+  border: 1px solid var(--n200);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  transition: border-color .15s;
+  cursor: pointer;
+}
+.news-card:hover { border-color: var(--blue-300); }
+.news-card:hover .news-card-link { gap: 10px; color: var(--blue-700); }
+
+.news-img {
+  height: 180px; background: var(--n100);
+  position: relative; overflow: hidden; flex-shrink: 0;
+}
+.news-img-category {
+  position: absolute; bottom: 12px; left: 12px;
+  font-family: var(--f-head); font-size: 10px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  background: rgba(0,0,0,.5); color: #fff;
+  padding: 4px 10px; border-radius: 2px;
+  backdrop-filter: blur(4px);
+}
+
+.news-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.news-cat { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue-500); }
+.news-title { font-family: var(--f-head); font-size: 16px; font-weight: 700; color: var(--n900); line-height: 1.3; letter-spacing: -.01em; }
+.news-excerpt { font-family: var(--f-body); font-size: 13.5px; color: var(--n600); line-height: 1.6; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.news-card-link {
+  font-family: var(--f-head); font-size: 13px; font-weight: 600;
+  color: var(--blue-500); text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+  transition: gap .15s, color .15s; margin-top: 6px;
+}
+
+/* ══════════════════════════════════════
+   DUAL CTA
+══════════════════════════════════════ */
+.dual-cta {
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+
+.cta-panel {
+  padding: 80px 64px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.cta-panel-inv { background: var(--blue-900); }
+.cta-panel-fnd { background: var(--n900); }
+
+.cta-eyebrow {
+  font-family: var(--f-head); font-size: 11px; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+}
+.cta-panel-inv .cta-eyebrow { color: var(--blue-300); }
+.cta-panel-fnd .cta-eyebrow { color: var(--orange-400); }
+
+.cta-h3 {
+  font-family: var(--f-head); font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; color: #fff;
+}
+.cta-p { font-family: var(--f-body); font-size: 15px; color: rgba(255,255,255,.5); line-height: 1.65; max-width: 380px; }
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+.footer { background: var(--n950); padding: 72px 56px 40px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+
+.footer-top {
+  display: grid; grid-template-columns: 260px 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  margin-bottom: 28px;
+}
+
+.footer-wordmark { font-family: var(--f-head); font-size: 18px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 10px; }
+.footer-wordmark .b { color: var(--blue-300); }
+.footer-wordmark .o { color: var(--orange-400); }
+
+.footer-bio { font-family: var(--f-body); font-size: 13px; line-height: 1.65; color: rgba(255,255,255,.35); margin-bottom: 20px; }
+.footer-socials { display: flex; gap: 8px; }
+.footer-social-link {
+  font-family: var(--f-head); font-size: 12px; font-weight: 600;
+  color: rgba(255,255,255,.4); text-decoration: none;
+  padding: 7px 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 2px;
+  transition: color .15s, border-color .15s;
+}
+.footer-social-link:hover { color: rgba(255,255,255,.8); border-color: rgba(255,255,255,.3); }
+
+.footer-col-title { font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 16px; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-family: var(--f-body); font-size: 13.5px; color: rgba(255,255,255,.45); text-decoration: none; transition: color .15s; }
+.footer-links a:hover { color: rgba(255,255,255,.8); }
+
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: var(--f-body); font-size: 12px; color: rgba(255,255,255,.25); }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-family: var(--f-body); font-size: 12px; color: rgba(255,255,255,.25); text-decoration: none; transition: color .15s; }
+.footer-legal a:hover { color: rgba(255,255,255,.55); }
+
+</style>
+</head>
+<body>
+
+<!-- ════════════ NAV ════════════ -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="12" stroke="#3871C1" stroke-width="2.5"/>
+      <circle cx="14" cy="14" r="7.5" stroke="#F68812" stroke-width="2"/>
+      <circle cx="14" cy="14" r="3" fill="#3871C1"/>
+    </svg>
+    <div class="nav-wordmark"><span class="b">melbourne</span><span class="o">angels</span></div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#investors">For Investors</a></li>
+    <li><a href="#founders">For Founders</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#news">News</a></li>
+  </ul>
+
+  <div class="nav-ctas">
+    <a href="#founders" class="btn btn-sm btn-ghost-dark" style="background:transparent;color:var(--n600);border-color:var(--n200);">Submit a Deal</a>
+    <a href="#investors" class="btn btn-sm btn-primary">Apply to Join</a>
+  </div>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero" id="about">
+  <div class="hero-wash"></div>
+  <div class="hero-body">
+
+    <div class="hero-kicker">
+      <span class="hero-kicker-rule"></span>
+      Victoria's most active angel syndicate
+      <span class="hero-kicker-year">Est. 2007</span>
+    </div>
+
+    <h1 class="hero-h1">
+      Backing the next<br>generation of<br><em>Australian founders</em>
+    </h1>
+
+    <p class="hero-lead">
+      Melbourne Angels connects experienced investors with exceptional early-stage startups. 150+ companies backed. $250m+ in total funding raised. Still going.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#investors" class="btn btn-lg btn-white">Apply for Membership</a>
+      <a href="#founders" class="btn btn-lg btn-white-outline">Submit a Deal</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-n">150<span>+</span></div>
+        <div class="hero-stat-l">companies backed<br>since 2007</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">$35<span>m+</span></div>
+        <div class="hero-stat-l">invested by members<br>across 700+ deals</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">$250<span>m+</span></div>
+        <div class="hero-stat-l">total capital raised<br>by our portfolio</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">700<span>+</span></div>
+        <div class="hero-stat-l">high-value jobs<br>created in Australia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PERSONA SPLIT ════════════ -->
+<div class="persona">
+  <!-- Investor panel -->
+  <div class="persona-panel persona-panel-inv" data-letter="I">
+    <div>
+      <div class="persona-tag">Angel Investors</div>
+      <h2 class="persona-h2">Invest alongside Melbourne's most experienced angels</h2>
+      <p class="persona-p">Access curated deal flow reviewed by expert peers. Co-invest with experienced operators and executives. Spread your risk, borrow others' expertise — and help founders win.</p>
+    </div>
+    <a href="#investors" class="persona-arrow-btn">
+      Apply for Membership
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M9.5 4l5 5-5 5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <!-- Founder panel -->
+  <div class="persona-panel persona-panel-fnd" data-letter="F">
+    <div>
+      <div class="persona-tag">Startup Founders</div>
+      <h2 class="persona-h2">Raise from investors who've built companies too</h2>
+      <p class="persona-p">We invest $100k–$500k per round and follow on. You get more than capital — our members engage with your board, your team, and your network to help you succeed.</p>
+    </div>
+    <a href="#founders" class="persona-arrow-btn">
+      Submit a Deal
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M9.5 4l5 5-5 5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ════════════ STATS BAR ════════════ -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="sbar-item">
+      <div class="sbar-icon">
+        <!-- Calendar icon -->
+        <svg viewBox="0 0 18 18"><rect x="2" y="4" width="14" height="12" rx="1.5"/><path d="M6 2v4M12 2v4M2 9h14"/></svg>
+      </div>
+      <div>
+        <div class="sbar-n">20</div>
+        <div class="sbar-l">investments per year</div>
+      </div>
+    </div>
+    <div class="sbar-item">
+      <div class="sbar-icon">
+        <!-- Currency icon -->
+        <svg viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 5.5v7M6.5 7.5a2.5 2 0 0 1 5 0c0 1.2-.8 2-2.5 2s-2.5.8-2.5 2a2.5 2 0 0 0 5 0"/></svg>
+      </div>
+      <div>
+        <div class="sbar-n">$100<sup>k</sup>–$500<sup>k</sup></div>
+        <div class="sbar-l">per round invested</div>
+      </div>
+    </div>
+    <div class="sbar-item">
+      <div class="sbar-icon">
+        <!-- Clock icon -->
+        <svg viewBox="0 0 18 18"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l2.5 2.5"/></svg>
+      </div>
+      <div>
+        <div class="sbar-n">5–8 yrs</div>
+        <div class="sbar-l">patient active investors</div>
+      </div>
+    </div>
+    <div class="sbar-item">
+      <div class="sbar-icon">
+        <!-- Arrow trending up icon -->
+        <svg viewBox="0 0 18 18"><path d="M2 13L7 8l3 3 6-6"/><path d="M13 5h3v3"/></svg>
+      </div>
+      <div>
+        <div class="sbar-n">10<sup>×</sup></div>
+        <div class="sbar-l">target return on investment</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ INVESTOR SECTION ════════════ -->
+<section class="section section-dark" id="investors">
+  <div class="section-inner">
+    <div class="eyebrow">
+      <span class="eyebrow-rule"></span>
+      For Investors
+    </div>
+    <h2 class="section-h2">A community built to<br>invest better, together</h2>
+    <p class="section-lead">Melbourne Angels is member-run. Everyone contributes — to deal sourcing, due diligence, and portfolio support. In return, you get access to opportunities and expertise you couldn't find alone.</p>
+
+    <div class="inv-layout">
+      <!-- Steps -->
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Meet the community</div>
+            <div class="step-body">Attend a Monthly Meeting and a Networking Lunch. Get referred by a current member — this is a membership community built on trust and shared purpose.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Submit your application</div>
+            <div class="step-body">Share your CV and meet the Membership Team. We look for investors with experience, appetite for risk, and a genuine desire to help founders win.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">Start evaluating deals</div>
+            <div class="step-body">Three to five new companies present each month. You choose what interests you and invest on your own terms — no mandates, no minimums beyond one deal per year.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <div class="step-title">Help portfolio companies succeed</div>
+            <div class="step-body">Contribute to boards, mentor founders, leverage your network. Your experience is as valuable as your capital to the founders we back.</div>
+          </div>
+        </div>
+        <div style="margin-top: 36px;">
+          <a href="#" class="btn btn-white">Apply for Membership →</a>
+        </div>
+      </div>
+
+      <!-- Benefits card -->
+      <div class="benefits-card">
+        <div class="benefits-card-title">Member Benefits</div>
+        <div class="benefits-card-h3">Why join Melbourne Angels?</div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 16 16"><path d="M2 12l4-4 2 2 6-6"/><path d="M11 4h3v3"/></svg>
+          </div>
+          <div class="benefit-text"><strong>Superior deal flow</strong> — thousands of opportunities reviewed annually, pre-screened by expert peers across every sector</div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 16 16"><circle cx="6" cy="5" r="2.5"/><circle cx="11" cy="5" r="2.5"/><path d="M1 13a5 5 0 0 1 10 0"/><path d="M11 8a3 3 0 0 1 4 2.8"/></svg>
+          </div>
+          <div class="benefit-text"><strong>Peer expertise</strong> — invest with confidence in sectors outside your own using the group's collective experience</div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 16 16"><rect x="1" y="9" width="4" height="6" rx="1"/><rect x="6" y="6" width="4" height="9" rx="1"/><rect x="11" y="3" width="4" height="12" rx="1"/></svg>
+          </div>
+          <div class="benefit-text"><strong>Collective leverage</strong> — better deal terms, standardised documents, more capital than any individual could deploy</div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 16 16"><circle cx="3" cy="8" r="2"/><circle cx="13" cy="4" r="2"/><circle cx="13" cy="12" r="2"/><path d="M5 8h4M11 5L5 7.5M11 11L5 8.5"/></svg>
+          </div>
+          <div class="benefit-text"><strong>Global network</strong> — co-invest with leading angel groups across Australia and internationally</div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 16 16"><path d="M8 1l2 4.5 5 .7-3.5 3.4.8 5L8 12.4 3.7 14.6l.8-5L1 6.2l5-.7z"/></svg>
+          </div>
+          <div class="benefit-text"><strong>Free training</strong> — induction program, workshops, and ongoing education included with membership</div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="8" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/></svg>
+          </div>
+          <div class="benefit-text"><strong>Privacy by default</strong> — remain private while benefiting from Melbourne Angels' prominent public profile</div>
+        </div>
+
+        <a href="#" class="btn btn-ghost-dark" style="width:100%;justify-content:center;">View all member benefits</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PORTFOLIO ════════════ -->
+<section class="section section-tint" id="portfolio">
+  <div class="section-inner">
+    <div class="portfolio-header">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-rule"></span>Portfolio</div>
+        <h2 class="section-h2">150+ companies backed</h2>
+        <p class="section-lead" style="max-width:420px;">From deep tech to SaaS, medtech to consumer — we back founders building companies that matter across Victoria and beyond.</p>
+      </div>
+      <a href="#" class="btn btn-outline">View all portfolio →</a>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-tile">
+        <div class="portfolio-name">SpokePhone</div>
+        <div class="portfolio-desc">Enterprise-grade business phone system on your mobile</div>
+        <div class="portfolio-meta"><span class="portfolio-year">2018</span><span class="badge badge-active">Active</span></div>
+      </div>
+      <div class="portfolio-tile">
+        <div class="portfolio-name">YouLi</div>
+        <div class="portfolio-desc">Group travel SaaS platform</div>
+        <div class="portfolio-meta"><span class="portfolio-year">2019 · ×3</span><span class="badge badge-active">Active</span></div>
+      </div>
+      <div class="portfolio-tile">
+        <div class="portfolio-name">FileInvite</div>
+        <div class="portfolio-desc">Secure document collection for professionals</div>
+        <div class="portfolio-meta"><span class="portfolio-year">2019</span><span class="badge badge-active">Active</span></div>
+      </div>
+      <div class="portfolio-tile">
+        <div class="portfolio-name">Clipchamp</div>
+        <div class="portfolio-desc">Video sharing — acquired by Microsoft 2021</div>
+        <div class="portfolio-meta"><span class="portfolio-year">2016</span><span class="badge badge-exit">Exited</span></div>
+      </div>
+      <div class="portfolio-tile">
+        <div class="portfolio-name">FMClarity</div>
+        <div class="portfolio-desc">Next-gen facilities management ecosystem</div>
+        <div class="portfolio-meta"><span class="portfolio-year">2020 · ×2</span><span class="badge badge-active">Active</span></div>
+      </div>
+      <div class="portfolio-tile">
+        <div class="portfolio-name">GloryLeague</div>
+        <div class="portfolio-desc">Automated sports video, highlights & stats</div>
+        <div class="portfolio-meta"><span class="portfolio-year">2016</span><span class="badge badge-active">Active</span></div>
+      </div>
+      <div class="portfolio-tile">
+        <div class="portfolio-name">Insite.ai</div>
+        <div class="portfolio-desc">Autonomous category management decisions</div>
+        <div class="portfolio-meta"><span class="portfolio-year">2020</span><span class="badge badge-active">Active</span></div>
+      </div>
+      <div class="portfolio-tile">
+        <div class="portfolio-name">Hemideina</div>
+        <div class="portfolio-desc">Paradigm shift in cochlear implant performance</div>
+        <div class="portfolio-meta"><span class="portfolio-year">2021</span><span class="badge badge-active">Active</span></div>
+      </div>
+      <div class="portfolio-tile">
+        <div class="portfolio-name">MaxMe</div>
+        <div class="portfolio-desc">Breaking barriers to employee performance</div>
+        <div class="portfolio-meta"><span class="portfolio-year">2023</span><span class="badge badge-active">Active</span></div>
+      </div>
+      <div class="portfolio-tile">
+        <div class="portfolio-name">Rhinohide</div>
+        <div class="portfolio-desc">Body armour for your 4×4</div>
+        <div class="portfolio-meta"><span class="portfolio-year">2018</span><span class="badge badge-active">Active</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOUNDER SECTION ════════════ -->
+<section class="section section-light" id="founders">
+  <div class="section-inner">
+    <div class="eyebrow"><span class="eyebrow-rule" style="background:var(--orange-500);"></span><span style="color:var(--orange-600);">For Founders</span></div>
+    <h2 class="section-h2" style="max-width:640px;">What we look for in a deal</h2>
+
+    <div class="fnd-layout">
+      <div class="fnd-intro">
+        <p class="section-lead" style="margin-top:0;">We've backed 150+ companies and run 700+ individual investment rounds. We know what great looks like — and we invest with conviction when we see it.</p>
+        <p style="font-family:var(--f-body);font-size:15px;color:var(--n600);line-height:1.65;margin-top:16px;">Our members have deep executive and entrepreneurial experience across every sector. One of the core benefits of working with Melbourne Angels is the active coaching and network those investors provide.</p>
+        <div class="fnd-intro-actions">
+          <a href="#" class="btn btn-accent btn-lg">Submit a Deal →</a>
+          <a href="#" class="btn btn-outline">Read our investment criteria</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="criteria-grid">
+          <div class="criteria-tile">
+            <div class="criteria-icon">
+              <svg viewBox="0 0 16 16"><path d="M8 1.5L9.5 6h4.5L10.5 9l1.5 4.5L8 11l-4 2.5L5.5 9 2 6h4.5z"/></svg>
+            </div>
+            <div class="criteria-name">Stage</div>
+            <div class="criteria-desc">Seed and beyond. Working prototype, customer discovery done, business model clear.</div>
+          </div>
+          <div class="criteria-tile">
+            <div class="criteria-icon">
+              <svg viewBox="0 0 16 16"><path d="M1 12L5 7l3 3 4-5 3 3"/></svg>
+            </div>
+            <div class="criteria-name">Market Opportunity</div>
+            <div class="criteria-desc">Large, accessible market. Credible path to $20m+ revenue within 3–5 years.</div>
+          </div>
+          <div class="criteria-tile">
+            <div class="criteria-icon">
+              <svg viewBox="0 0 16 16"><circle cx="6" cy="5" r="2.5"/><circle cx="11" cy="5" r="2.5"/><path d="M1 13a5 5 0 0 1 10 0"/><path d="M11 8a3 3 0 0 1 4 2.8"/></svg>
+            </div>
+            <div class="criteria-name">Team</div>
+            <div class="criteria-desc">Ethical, passionate, deeply experienced. Diversity of thinking. Open to coaching.</div>
+          </div>
+          <div class="criteria-tile">
+            <div class="criteria-icon">
+              <svg viewBox="0 0 16 16"><rect x="3" y="7" width="10" height="8" rx="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2"/><circle cx="8" cy="11" r="1"/></svg>
+            </div>
+            <div class="criteria-name">IP &amp; Defensibility</div>
+            <div class="criteria-desc">IP at the heart of your advantage. Sustainable differentiation for each stakeholder in your channel.</div>
+          </div>
+          <div class="criteria-tile">
+            <div class="criteria-icon">
+              <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5"/><path d="M8 5v3.5l2.5 1.5"/></svg>
+            </div>
+            <div class="criteria-name">Exit Strategy</div>
+            <div class="criteria-desc">Patient 5–8 year investors seeking 10x from a strategic trade sale. You should have a view.</div>
+          </div>
+          <div class="criteria-tile">
+            <div class="criteria-icon">
+              <svg viewBox="0 0 16 16"><path d="M1 9l3-3 3 3 3-3 3 3 2-2"/><path d="M1 5l3-3 3 3 3-3 3 3 2-2"/></svg>
+            </div>
+            <div class="criteria-name">Financial Projections</div>
+            <div class="criteria-desc">Detailed, granular P&amp;L, balance sheet and cash flow. Month-by-month year one. No hand-waving.</div>
+          </div>
+        </div>
+
+        <!-- Deal strip -->
+        <div class="deal-strip">
+          <div class="deal-item">
+            <div class="deal-n">$175</div>
+            <div class="deal-l">submission fee</div>
+          </div>
+          <div class="deal-item">
+            <div class="deal-n">~20 min</div>
+            <div class="deal-l">to apply</div>
+          </div>
+          <div class="deal-item">
+            <div class="deal-n">10 days</div>
+            <div class="deal-l">first-pass review</div>
+          </div>
+          <div class="deal-item">
+            <div class="deal-n">$1m–$2.5m</div>
+            <div class="deal-l">typical pre-money range</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ NEWS ════════════ -->
+<section class="section section-tint" id="news">
+  <div class="section-inner">
+    <div class="news-header">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-rule"></span>News &amp; Insights</div>
+        <h2 class="section-h2">From the community</h2>
+      </div>
+      <a href="#" class="btn btn-outline">View all news →</a>
+    </div>
+
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-img" style="background:linear-gradient(135deg, var(--blue-700), var(--blue-900));">
+          <div class="news-img-category">Member News</div>
+        </div>
+        <div class="news-body">
+          <div class="news-cat">Community</div>
+          <div class="news-title">Jordan Green &amp; Jim Liaskos Invested as Members of the Order of Australia</div>
+          <div class="news-excerpt">Two Melbourne Angels members were recognised at a ceremony at Government House for their outstanding contributions to the Australian business community.</div>
+          <a href="#" class="news-card-link">Read more <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="margin-bottom:-1px"><path d="M3 7h8M7.5 3.5l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-img" style="background:linear-gradient(135deg, #8B3A0E, var(--orange-700));">
+          <div class="news-img-category">Policy</div>
+        </div>
+        <div class="news-body">
+          <div class="news-cat">Advocacy</div>
+          <div class="news-title">Save Australian Angel Groups from Ill-Informed Federal Legislative Changes</div>
+          <div class="news-excerpt">Melbourne Angels is calling on the Federal Government to reconsider proposed changes that threaten the future of angel investment across the country.</div>
+          <a href="#" class="news-card-link">Read more <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="margin-bottom:-1px"><path d="M3 7h8M7.5 3.5l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-img" style="background:linear-gradient(135deg, var(--n700), var(--n900));">
+          <div class="news-img-category">Investing</div>
+        </div>
+        <div class="news-body">
+          <div class="news-cat">Knowledge</div>
+          <div class="news-title">Share Options — Relevance for Early Stage Investing</div>
+          <div class="news-excerpt">From Australia's leading source of unbiased startup investing knowledge — why share options matter for early-stage investors and how to structure them.</div>
+          <a href="#" class="news-card-link">Read more <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="margin-bottom:-1px"><path d="M3 7h8M7.5 3.5l4 3.5-4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ DUAL CTA ════════════ -->
+<div class="dual-cta">
+  <div class="cta-panel cta-panel-inv">
+    <div class="cta-eyebrow">For Investors</div>
+    <h2 class="cta-h3">Ready to invest in the next generation of Australian companies?</h2>
+    <p class="cta-p">Membership is by invitation. Express your interest and our team will be in touch to walk you through the process.</p>
+    <div><a href="#" class="btn btn-primary btn-lg">Apply for Membership →</a></div>
+  </div>
+  <div class="cta-panel cta-panel-fnd">
+    <div class="cta-eyebrow">For Founders</div>
+    <h2 class="cta-h3">Have a company worth backing? Let's talk.</h2>
+    <p class="cta-p">We consider every application with a positive, optimistic mindset. Our screening team reviews within 10 business days.</p>
+    <div><a href="#" class="btn btn-accent btn-lg">Submit a Deal →</a></div>
+  </div>
+</div>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-wordmark"><span class="b">melbourne</span><span class="o">angels</span></div>
+        <p class="footer-bio">Melbourne's most active angel investment group. Investing in exceptional Australian founders since 2007.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-link">LinkedIn</a>
+          <a href="#" class="footer-social-link">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">For Investors</div>
+        <ul class="footer-links">
+          <li><a href="#">Why Join</a></li>
+          <li><a href="#">Eligibility</a></li>
+          <li><a href="#">Apply for Membership</a></li>
+          <li><a href="#">Member Benefits</a></li>
+          <li><a href="#">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">For Founders</div>
+        <ul class="footer-links">
+          <li><a href="#">Submit a Deal</a></li>
+          <li><a href="#">Investment Criteria</a></li>
+          <li><a href="#">Our Process</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Melbourne Angels. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('is-scrolled', window.scrollY > 10);
+}, { passive: true });
+</script>
+</body>
+</html>
